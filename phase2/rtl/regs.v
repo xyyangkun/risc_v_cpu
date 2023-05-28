@@ -20,24 +20,24 @@ module regs(
 
 	always @(*)begin
 		if(rst == 1'b0)
-			reg1_rdata_o <= 32'b0;
+			reg1_rdata_o = 32'b0;
 		else if(reg1_raddr_i == 5'b0)
-			reg1_rdata_o <= 32'b0;
+			reg1_rdata_o = 32'b0;
 		else if(reg_wen && reg1_raddr_i == reg_waddr_i)
-			reg1_rdata_o <= reg_wdata_i;
+			reg1_rdata_o = reg_wdata_i;
 		else
-			reg1_rdata_o <= regs[reg1_raddr_i];
+			reg1_rdata_o = regs[reg1_raddr_i];
 	end
 	
 	always @(*)begin
 		if(rst == 1'b0)
-			reg2_rdata_o <= 32'b0;
+			reg2_rdata_o = 32'b0;
 		else if(reg2_raddr_i == 5'b0)
-			reg2_rdata_o <= 32'b0;
+			reg2_rdata_o = 32'b0;
 		else if(reg_wen && reg2_raddr_i == reg_waddr_i)
-			reg2_rdata_o <= reg_wdata_i;
+			reg2_rdata_o = reg_wdata_i;
 		else
-			reg2_rdata_o <= regs[reg2_raddr_i];
+			reg2_rdata_o = regs[reg2_raddr_i];
 	end
 
 	always @(posedge clk)begin
